@@ -1,0 +1,22 @@
+What is a Trie?
+A Trie is a data structure that is used for finding a specific set of strings quickly.
+This searching algorithm uses individual nodes to represent characters in the alphabet. 
+Every node can have 26 children, 1 for each charcter in the english alphabet. Each node 
+is inserted in alphabetical order, so the tree is probarly sorted. A Trie will typically
+have 3 methods, one for insertion, deletion, and searching.
+
+Pros:
+-Has alphabetical sorting, so printing words in alphabetical order can be done 
+quickly.
+-A Trie will be able to insert, sort, and delete any given node in O(n) time.
+
+Cons:
+-A Trie takes up a mass amount of space in many cases, as each node can have
+many children which leads inefficient space usage.
+-A well constructed hash table is able to lookup a value with a best case of O(1) 
+which is far faster than a Trie.
+
+Applications:
+-Browser History
+-Auto-correct
+-Auto complete
