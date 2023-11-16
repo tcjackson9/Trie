@@ -12,7 +12,7 @@ class TrieNode {
     }
 }
 
-public class Trie {
+public class Trie implements DataStructure {
     private TrieNode root;
     // Trie constructer
     public Trie() {
@@ -46,6 +46,7 @@ public class Trie {
      */
     public boolean search(String word) {
         TrieNode node = root;
+        System.out.println("searching Trie...");
         for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
             int index = c - 'a'; // Assuming the characters are in lowercase English letters

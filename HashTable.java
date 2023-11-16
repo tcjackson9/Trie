@@ -5,10 +5,12 @@
  * against Trie
  */
 
-public class HashTable {
+
+
+public class HashTable implements DataStructure {
     private static final int INITIAL_CAPACITY = 16;
     private static final double LOAD_FACTOR = 0.75;
-
+    public int i;
     private String[] table;
     private int size;
 
@@ -34,7 +36,7 @@ public class HashTable {
 
         for (String key : table) {
             if (key != null) {
-                int index = hash(key) % newCapacity;
+                int index = Math.abs(hash(key) % newCapacity);
                 while (newTable[index] != null) {
                     index = (index + 1) % newCapacity;
                 }
@@ -50,12 +52,13 @@ public class HashTable {
      * and will resize if neccessary.
      * Runtime: O(1)
      */
-    public void add(String key) {
+    public void insert(String key) {
         if (size >= LOAD_FACTOR * table.length) {
             resizeTable();
         }
-
-        int index = hash(key);
+        System.out.println("inserting HT..."+i);
+        i++;
+        int index = Math.abs(hash(key));
         while (table[index] != null) {
             index = (index + 1) % table.length;
         }
@@ -69,8 +72,9 @@ public class HashTable {
      * Returns: boolean; whether the search was successful
      * Runtime: O(1)
      */
-    public boolean contains(String key) {
-        int index = hash(key);
+    public boolean search(String key) {
+        int index = Math.abs(hash(key));
+        System.out.println("searching HT...");
         while (table[index] != null) {
             if (table[index].equals(key)) {
                 return true;
