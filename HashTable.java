@@ -10,7 +10,6 @@
 public class HashTable implements DataStructure {
     private static final int INITIAL_CAPACITY = 16;
     private static final double LOAD_FACTOR = 0.75;
-    public int i;
     private String[] table;
     private int size;
 
@@ -56,8 +55,7 @@ public class HashTable implements DataStructure {
         if (size >= LOAD_FACTOR * table.length) {
             resizeTable();
         }
-        System.out.println("inserting HT..."+i);
-        i++;
+        
         int index = Math.abs(hash(key));
         while (table[index] != null) {
             index = (index + 1) % table.length;
@@ -74,7 +72,6 @@ public class HashTable implements DataStructure {
      */
     public boolean search(String key) {
         int index = Math.abs(hash(key));
-        System.out.println("searching HT...");
         while (table[index] != null) {
             if (table[index].equals(key)) {
                 return true;

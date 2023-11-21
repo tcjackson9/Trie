@@ -49,7 +49,6 @@ public class Trie implements DataStructure {
      */
     public boolean search(String word) {
         TrieNode node = root;
-        System.out.println("searching Trie...");
         for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
             int index = getIndex(c);

@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class TrieVsHashtableVsBSTComparison {
@@ -10,19 +11,23 @@ public class TrieVsHashtableVsBSTComparison {
         HashTable hashtable = new HashTable();
         BinarySearchTree bst = new BinarySearchTree();
 
+        //Grab n value
+        System.out.println("Enter a value for n");
+        int n = getUserChoice();
+
         // Insertion
         long startInsertionTimeTrie = System.nanoTime();
-        performInsertions(trie, wordsList);
+        performInsertions(trie, wordsList,n);
         long endInsertionTimeTrie = System.nanoTime();
 
         wordsList = new ArrayList<>();
         long startInsertionTimeHashtable = System.nanoTime();
-        performInsertions(hashtable, wordsList);
+        performInsertions(hashtable, wordsList,n);
         long endInsertionTimeHashtable = System.nanoTime();
 
         wordsList = new ArrayList<>();
         long startInsertionTimeBST = System.nanoTime();
-        performInsertions(bst, wordsList);
+        performInsertions(bst, wordsList,n);
         long endInsertionTimeBST = System.nanoTime();
 
         // Search
@@ -54,11 +59,10 @@ public class TrieVsHashtableVsBSTComparison {
     }
 
     // Helper method to perform insertions
-    private static void performInsertions(DataStructure ds, ArrayList<String> wordsList) {
+    private static void performInsertions(DataStructure ds, ArrayList<String> wordsList,int n) {
         try (BufferedReader br = new BufferedReader(new FileReader("words_alpha.txt"))) {
             String word;
             int i = 1;
-            int n = 10000;
             while (i <= n && (word = br.readLine()) != null) {
                 ds.insert(word.trim());
                 wordsList.add(word.trim());
@@ -77,8 +81,16 @@ public class TrieVsHashtableVsBSTComparison {
     }
 
     private static long calculateSpaceComplexity(DataStructure ds) {
-        // This is a rough estimation and may not be accurate depending on the implementation
-        // For more accurate measurement, you might want to use a memory profiler tool
         return Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+    }
+
+    private static int getUserChoice() {
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            return Integer.parseInt(reader.readLine().trim());
+        } catch (IOException | NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a number.");
+            return getUserChoice();
+        }
     }
 }
