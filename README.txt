@@ -59,12 +59,12 @@ Space complexity of BST: 3022032 bytes
 -----------------------------------
 n=1,000
 -----------------------------------
-Insertion time in Trie: 2071200 ns
-Insertion time in Hashtable: 963400 ns
-Insertion time in BST: 4571100 ns
-Search time in Trie: 2583200 ns
-Search time in Hashtable: 559500 ns
-Search time in BST: 9648700 ns
+Insertion time in Trie: 15966500 ns
+Insertion time in Hashtable: 9395200 ns
+Insertion time in BST: 22962300 ns
+Search time in Trie: 2252300 ns
+Search time in Hashtable: 670500 ns
+Search time in BST: 13904200 ns
 Space complexity of Trie: 3483488 bytes
 Space complexity of Hashtable: 3483488 bytes
 Space complexity of BST: 3483488 bytes
