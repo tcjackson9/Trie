@@ -24,7 +24,6 @@ public class Trie implements DataStructure {
      * insert(word) takes a string and inserts it
      * into the Trie while maintaining alphabetical
      * order.
-     * Runtime: O(n)
      */
     public void insert(String word) {
         TrieNode node = root;
@@ -45,7 +44,6 @@ public class Trie implements DataStructure {
      * case-sensitive and case-insensitive searches based on the
      * value of the caseSensitive parameter.
      * Returns: boolean; whether the search was successful
-     * Runtime: O(n)
      */
     public boolean search(String word) {
         TrieNode node = root;
@@ -64,7 +62,6 @@ public class Trie implements DataStructure {
      * startsWith(prefix) is given a small string
      * and checks if it is inside the Trie.
      * Returns: boolean; whether the search was successful
-     * Runtime: O(n)
      */
     public boolean startsWith(String prefix) {
         TrieNode node = root;
@@ -83,7 +80,6 @@ public class Trie implements DataStructure {
      * findWordsWithPrefix(prefix) finds all words
      * in the Trie that match the given prefix.
      * Returns: List<String>; words with given prefix.
-     * Runtime: O(k + m), where k is the length of the prefix and m is the total number of nodes in the sub-trie.
      */
     public List<String> findWordsWithPrefix(String prefix) {
         List<String> words = new ArrayList<>();
@@ -99,7 +95,6 @@ public class Trie implements DataStructure {
      * matches the given prefix. Used to help function
      * findWordsWithPrefix(prefix).
      * Returns: TrieNode, A node that matches the prefix
-     * Runtime: O(n)
      */
     private TrieNode findNodeWithPrefix(String prefix) {
         TrieNode node = root;
@@ -119,7 +114,6 @@ public class Trie implements DataStructure {
      * a node, and a string to build off of. It finds all the words in
      * the Trie that start with currentWord. words are updated every time
      * another valid word is found.
-     * Runtime: O(m), where m is the total number of nodes in the sub-trie.
      */
     private void findWords(TrieNode node, String currentWord, List<String> words) {
         if (node.isEndOfWord) {
@@ -137,7 +131,6 @@ public class Trie implements DataStructure {
     /*
      * remove(word) removes a word from the Trie.
      * Returns: boolean; whether the removal was successful
-     * Runtime: O(n)
      */
     public boolean remove(String word) {
         return remove(root, word, 0);
