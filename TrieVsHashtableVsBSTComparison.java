@@ -84,6 +84,7 @@ public class TrieVsHashtableVsBSTComparison {
         return Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
     }
 
+    // Grabs int input from user
     private static int getUserChoice() {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));

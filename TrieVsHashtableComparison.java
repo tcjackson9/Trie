@@ -67,8 +67,6 @@ public class TrieVsHashtableComparison {
 
 
     private static long calculateSpaceComplexity(DataStructure ds) {
-        // This is a rough estimation and may not be accurate depending on the implementation
-        // For more accurate measurement, you might want to use a memory profiler tool
         return Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
     }
 }
