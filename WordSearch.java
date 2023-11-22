@@ -17,7 +17,7 @@ public class WordSearch {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        // Menu options loop
         while (true) {
             displayMenu();
             int choice = getUserChoice();
@@ -50,6 +50,9 @@ public class WordSearch {
         }
     }
 
+    /*
+     * displayMenu() displays the menu options.
+     */
     private static void displayMenu() {
         System.out.println("\nMenu:");
         System.out.println("1. Find words with prefix");
@@ -62,6 +65,9 @@ public class WordSearch {
         System.out.print("Enter your choice: ");
     }
 
+    /*
+     * getUserChoice() gets user choice for what to perform.
+     */
     private static int getUserChoice() {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -72,6 +78,9 @@ public class WordSearch {
         }
     }
 
+    /*
+     * insertNewWord() inserts a new word into the trie.
+     */
     private static void insertNewWord() {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -90,6 +99,9 @@ public class WordSearch {
         }
     }
 
+    /*
+     * searchForCompleteWord() searches for a complete word in the trie.
+     */
     private static void searchForCompleteWord() {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -110,6 +122,9 @@ public class WordSearch {
         }
     }
 
+    /*
+     * removeWord() removes a word from the trie.
+     */
     private static void removeWord() {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -131,6 +146,9 @@ public class WordSearch {
         }
     }
 
+    /*
+     * findWordsWithPrefix() finds words in the trie with specific prefix.
+     */
     private static void findWordsWithPrefix() {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -146,7 +164,6 @@ public class WordSearch {
                 System.out.println("Invalid characters in the prefix. Please enter only alphabetical characters.");
                 return;
             }
-
             List<String> words = trie.findWordsWithPrefix(prefix);
             if (words.isEmpty()) {
                 System.out.println("No words found with the prefix '" + prefix + "'.");
@@ -161,10 +178,16 @@ public class WordSearch {
         }
     }
 
+    /*
+     * displayTrieStructure() displays the trie structure.
+     */
     private static void displayTrieStructure() {
         System.out.println("Trie Structure:\n" + trie.toString());
     }
 
+    /*
+     * measurePerformance() measures the performance of the trie.
+     */
     private static void measurePerformance() {
         long startTime = System.nanoTime();
         // Perform some operations to measure performance
